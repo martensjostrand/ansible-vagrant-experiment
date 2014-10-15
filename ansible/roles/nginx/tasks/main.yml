@@ -1,0 +1,9 @@
+- name: install nginx
+  sudo: yes
+  sudo_user: root
+  apt: name=nginx state=present update_cache=yes
+  notify:
+    - restart nginx
+
+- name: copy index
+  template: src=index.html dest=/usr/share/nginx/www/index.html

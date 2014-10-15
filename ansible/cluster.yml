@@ -1,0 +1,11 @@
+---
+# file: site.yml
+- hosts: all
+  tasks:
+    - name: install curl
+      apt: name=curl state=present
+
+
+- include: loadbalancers.yml
+
+- include: webbfronts.yml

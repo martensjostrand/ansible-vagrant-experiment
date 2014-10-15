@@ -1,0 +1,11 @@
+- name: install keepalived
+  sudo: yes
+  sudo_user: root
+  apt: name=keepalived state=present update_cache=yes
+  notify:
+    - restart keepalived
+
+- name: keepalived configuration
+  template: src=keepalived.conf dest=/etc/keepalived/keepalived.conf
+  notify:
+    - restart keepalived

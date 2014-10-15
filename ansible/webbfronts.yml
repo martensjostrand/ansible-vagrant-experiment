@@ -1,0 +1,4 @@
+# file: webbfronts.yml
+- hosts: webbfronts
+  roles:
+    - nginx

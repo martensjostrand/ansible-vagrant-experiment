@@ -1,0 +1,11 @@
+[loadbalancers]
+loadbalancer0 keepalived_priority=100 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
+loadbalancer1 keepalived_priority=101 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2200
+
+[loadbalancers:vars]
+virtual_ip=192.168.100.10
+webbfont_ip = 192.168.100.110
+
+[webbfronts]
+webbfront0 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2201
+webbfront1 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2202

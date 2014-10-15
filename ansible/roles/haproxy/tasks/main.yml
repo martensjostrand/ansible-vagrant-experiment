@@ -1,0 +1,15 @@
+- name: create haproxy chroot
+  file: path=/var/lib/haproxy state=directory
+
+- name: install haproxy
+  apt: name=haproxy state=present update_cache=yes
+  notify:
+    - restart haproxy
+
+- name: configure haproxy
+  template: src=haproxy.cfg dest=/etc/haproxy/haproxy.cfg
+  notify:
+    - restart haproxy
+
+- name: enabe haproxy
+  copy: src=haproxy dest=/etc/default/haproxy owner=root group=root

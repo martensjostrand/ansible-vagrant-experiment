@@ -1,0 +1,5 @@
+# file: loadbalancers.yml
+- hosts: loadbalancers
+  roles:
+    - keepalived
+    - haproxy
