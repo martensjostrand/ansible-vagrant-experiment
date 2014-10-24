@@ -25,14 +25,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "webbfront1" do |webbfront1|
     webbfront1.vm.box = BOX
     webbfront1.vm.network "private_network", ip: "192.168.100.111"
-  end
 
-  config.vm.provision "ansible" do |ansible|
-    ansible.sudo = true
-    # ansible.verbose = "v"
-    ansible.inventory_path = "ansible/vagrant_inventory"
-    ansible.host_key_checking = false
-    ansible.playbook = "ansible/cluster.yml"
+    webbfront1.vm.provision "ansible" do |ansible|
+      ansible.sudo = true
+      ansible.limit = 'all'
+      ansible.inventory_path = "ansible/vagrant_inventory"
+      ansible.host_key_checking = false
+      ansible.playbook = "ansible/cluster.yml"
+    end
+
   end
 
 end
