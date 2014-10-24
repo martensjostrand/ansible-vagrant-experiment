@@ -27,3 +27,5 @@ $ vagrant up
 - Webbfronts
   - http://192.168.100.110/
   - http://192.168.100.111/
+
+TODO: Add info on how to provision real cluster
