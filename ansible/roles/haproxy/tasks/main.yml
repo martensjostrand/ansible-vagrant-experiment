@@ -1,3 +1,6 @@
+- name: install socat
+  apt: name=socat state=present update_cache=yes
+
 - name: create haproxy chroot
   file: path=/var/lib/haproxy state=directory
 
